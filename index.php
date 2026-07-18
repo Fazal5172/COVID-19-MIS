@@ -36,7 +36,7 @@ include __DIR__ . '/includes/header.php';
 <div class="max-w-4xl mx-auto py-12">
     <div class="text-center mb-12 animate-fade-in">
         <h2 class="text-base text-teal-600 dark:text-teal-400 font-semibold tracking-wide uppercase">COVID-19 Portal</h2>
-        <p class="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+        <p class="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-black sm:text-4xl">
             Management Information System
         </p>
         <p class="mt-4 max-w-2xl text-xl text-slate-500 dark:text-slate-400 mx-auto">
