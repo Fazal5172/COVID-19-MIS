@@ -51,7 +51,7 @@ include __DIR__ . '/includes/header.php';
                 <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
                     <i class="fa-solid fa-envelope"></i>
                 </span>
-                <input type="email" name="email" id="email" required placeholder="name@hospital.com" 
+                <input type="email" name="email" id="email" required placeholder="name@gmail.com" 
                        class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 dark:focus:border-teal-400 transition-all text-sm">
             </div>
         </div>
@@ -72,5 +72,36 @@ include __DIR__ . '/includes/header.php';
             <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In
         </button>
     </form>
+
+    <!-- Professional Demo Credentials Section -->
+    <div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-700/50 space-y-3 demo-credentials-container">
+        <p class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1">Demo Credentials</p>
+        
+        <!-- Email Row -->
+        <div class="flex items-center justify-between px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700/40 credential-row">
+            <div class="flex flex-col text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wide text-slate-400 dark:text-slate-500">Email Address</span>
+                <span class="text-sm font-medium text-slate-700 dark:text-slate-300 credential-text" id="doctor-email"><?php echo str_replace(" ", "",strtolower($role)) ?>@gmail.com</span>
+            </div>
+            <button class="copy-btn p-1.5 rounded-lg text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-slate-200/50 dark:hover:bg-slate-800 transition-all" onclick="copyToClipboard('doctor-email', this)" aria-label="Copy email">
+                <i class="fas fa-clipboard icon-copy"></i>
+                <i class="fas fa-check icon-check hidden"></i>
+                <span class="tooltip hidden">Copied!</span>
+            </button>
+        </div>
+
+        <!-- Password Row -->
+        <div class="flex items-center justify-between px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700/40 credential-row">
+            <div class="flex flex-col text-left">
+                <span class="text-[10px] font-bold uppercase tracking-wide text-slate-400 dark:text-slate-500">Password</span>
+                <span class="text-sm font-medium text-slate-700 dark:text-slate-300 credential-text" id="doctor-pass"><?php echo str_replace(" ", "",strtolower($role)) ?>password</span>
+            </div>
+            <button class="copy-btn p-1.5 rounded-lg text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-slate-200/50 dark:hover:bg-slate-800 transition-all" onclick="copyToClipboard('doctor-pass', this)" aria-label="Copy password">
+                <i class="fas fa-clipboard icon-copy"></i>
+                <i class="fas fa-check icon-check hidden"></i>
+                <span class="tooltip hidden">Copied!</span>
+            </button>
+        </div>
+    </div>
 </div>
 <?php include __DIR__ . '/includes/footer.php'; ?>
