@@ -3,7 +3,8 @@
     <!-- Footer -->
     <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 py-6 mt-12 transition-colors duration-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-slate-500 dark:text-slate-400">
-            <p>&copy; <?= date('Y') ?> COVID-19 Management Information System. Designed with High-Performance Standards.</p>
+            <p>&copy; <?= date('Y') ?> COVID-19 Management Information System Designed & Developed by Fazal Abbas Shah
+.</p>
             <div class="mt-2 flex justify-center gap-4 text-xs">
                 <span class="px-2 py-1 rounded bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-400 border border-teal-100 dark:border-teal-900">OOP PHP</span>
                 <span class="px-2 py-1 rounded bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-400 border border-blue-100 dark:border-blue-900">PDO Prepared</span>
@@ -38,5 +39,22 @@
             }
         });
     </script>
+    <script>
+    function copyToClipboard(elementId, button) {
+   
+    const textToCopy = document.getElementById(elementId).innerText;
+
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        
+        button.classList.add('copied');
+
+        setTimeout(() => {
+            button.classList.remove('copied');
+        }, 1500);
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
+    });
+}
+</script>
 </body>
 </html>
