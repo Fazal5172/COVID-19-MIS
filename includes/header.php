@@ -40,6 +40,87 @@ $currentName = Auth::getName();
         }
     </script>
 </head>
+<style>
+    /* Container and Rows */
+.demo-credentials-container {
+    padding: 10px 0;
+}
+
+.credential-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f1f5f9; /* Matches your light input grey */
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    position: relative; /* Crucial for tooltip positioning */
+}
+
+.credential-text {
+    font-family: monospace;
+    color: #334155;
+    font-size: 0.95rem;
+}
+
+/* Copy Button Styling */
+.copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #0d9488; /* Matches your teal theme color */
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.copy-btn:hover {
+    color: #0f766e; /* Slightly darker teal on hover */
+    transform: scale(1.05);
+}
+
+/* Icon Toggling Logic */
+.copy-btn .icon-check {
+    display: none;
+}
+
+.copy-btn.copied .icon-copy {
+    display: none;
+}
+
+.copy-btn.copied .icon-check {
+    display: inline-block;
+    color: #10b981; /* Success green for the checkmark */
+}
+
+/* Tooltip Polish */
+.copy-btn .tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 130%; /* Flips it just above the icon */
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background-color: #1e293b;
+    color: #ffffff;
+    text-align: center;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.copy-btn.copied .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+</style>
 <body class="h-full text-slate-800 dark:text-slate-100 flex flex-col font-sans transition-colors duration-200">
     <!-- Navbar -->
     <nav class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50 shadow-sm">
@@ -61,7 +142,7 @@ $currentName = Auth::getName();
                     <button id="theme-toggle" class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg focus:outline-none transition-all">
                         <i id="theme-toggle-dark-icon" class="hidden fa-solid fa-moon text-lg"></i>
                         <i id="theme-toggle-light-icon" class="hidden fa-solid fa-sun text-lg"></i>
-                    </button>
+                    <   /button>
 
                     <?php if ($currentName): ?>
                         <!-- User Info -->
