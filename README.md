@@ -1,110 +1,257 @@
 # 🦠 COVID-19 MIS (Management Information System)
 
-A professional, enterprise-grade **COVID-19 Management Information System** built using robust **Object-Oriented PHP**, **PDO Prepared Statements**, and **Tailwind CSS**. Designed to represent modern development standards and clean coding practices, this system features role-based portal access with layered managerial authorization and responsive design.
+A **COVID-19 Management Information System** built using **Object-Oriented PHP, PDO, MySQL, Tailwind CSS, and JavaScript**. The application provides secure authentication, role-based authorization, patient record management, and administrative dashboards through a responsive user interface.
+
+This project was originally developed using procedural PHP and later refactored into an Object-Oriented architecture to improve maintainability, code organization, and reusability. It serves as a portfolio project demonstrating practical backend development skills without relying on PHP frameworks.
 
 ---
 
-## 🚀 Key Highlights & Architectural Standards
-This system was refactored from legacy, procedurally-styled code into a modern code layout. It serves as a prime demonstration of **job-ready PHP engineering**, exhibiting:
+# 🧰 Technology Stack
 
-*   **Object-Oriented Design (OOP)**: Fully encapsulated business logic across clear, modular classes (such as `Database`, `Auth`, `User`, and `Patient`).
-*   **PSR-Compliant Dynamic Autoloading**: Leverages PHP's `spl_autoload_register` to eliminate tedious manual inclusion statements and enable seamless, automated class imports.
-*   **Prepared Statements & Security (PDO)**: Complete protection against SQL injection vulnerabilities. All database interactions utilize parameterized PDO queries.
-*   **Secure Authentication & Session Controls**: High-strength password verification with dynamic session validations and hierarchy authorizations.
-*   **Layered Role Hierarchy**: Built-in authorization tree controlling exactly which actions a user can perform based on their administrative clearance level.
-*   **Stunning UI with System-Wide Dark Mode**: Fully responsive UI crafted with Tailwind CSS and FontAwesome icons, supporting immediate light/dark toggle and fluid grid layouts.
+| Category        | Technologies                    |
+| --------------- | ------------------------------- |
+| Backend         | PHP (Object-Oriented), PDO      |
+| Database        | MySQL                           |
+| Frontend        | HTML5, Tailwind CSS, JavaScript |
+| Icons           | Font Awesome                    |
+| Authentication  | PHP Sessions                    |
+| Version Control | Git & GitHub                    |
 
 ---
 
-## 🛠️ System Directory Layout
-The project follows a neat, professional layout separating views, configurations, and core models:
+# ✨ Features
+
+* Secure user authentication
+* Role-Based Access Control (RBAC)
+* Patient record management
+* User management system
+* Administrative dashboards
+* CRUD operations
+* Responsive design
+* Dark mode support
+* Session-based authentication
+* Password hashing and verification
+* Prepared SQL statements using PDO
+* Modular Object-Oriented architecture
+
+---
+
+# 🏗️ Architecture Overview
+
+The project follows an Object-Oriented architecture where responsibilities are separated into reusable classes. Business logic, authentication, database access, and patient management are isolated from the presentation layer to improve readability and maintainability.
+
+### Key Implementation Highlights
+
+* **Object-Oriented PHP** – Business logic is organized into reusable classes such as `Database`, `Auth`, `User`, and `Patient`.
+* **Autoloading** – Uses `spl_autoload_register()` to automatically load classes and reduce manual file inclusion.
+* **Database Security** – Uses PDO prepared statements to help prevent SQL injection.
+* **Authentication** – Session-based authentication with password verification and role validation.
+* **Authorization** – Role-based access control restricts features according to user permissions.
+* **Responsive UI** – Built with Tailwind CSS and supports light/dark mode.
+
+---
+
+# 📂 Project Structure
 
 ```text
-├── classes/                     # Encapsulated Business & Database Models
-│   ├── Database.php             # Core PDO singleton connection class
-│   ├── Auth.php                 # User session, login, and authorization logic
-│   ├── User.php                 # Administrative personnel and hierarchy model
-│   └── Patient.php              # Patient medical record model & logging
-├── includes/                    # Shared Layouts and Global Helpers
-│   ├── autoloader.php           # Class loader bridge
-│   ├── header.php               # Tailwind Navbar and global header template
-│   └── footer.php               # Global footer and theme-mode script engine
-├── index.php                    # Landing role-selection page
-├── login.php                    # Role-specific authentication panel
-├── logout.php                   # Secure session termination controller
-├── web.php                      # Contextual dashboard (form builder / user list)
-├── addnew.php                   # Contextual account registry router
-├── addUser.php                  # Account provision controller
-├── deleteUser.php               # Account revocation handler
-├── display.php                  # Patient records ledger (division filter views)
-├── covidrecord_database.php     # Legacy retro-compatibility database bridge
-└── covidrecorddatabase.sql      # Consolidated SQL schema & seed dataset
+├── classes/
+│   ├── Database.php
+│   ├── Auth.php
+│   ├── User.php
+│   └── Patient.php
+│
+├── includes/
+│   ├── autoloader.php
+│   ├── header.php
+│   └── footer.php
+│
+├── index.php
+├── login.php
+├── logout.php
+├── web.php
+├── addnew.php
+├── addUser.php
+├── deleteUser.php
+├── display.php
+├── covidrecord_database.php
+└── covidrecorddatabase.sql
+```
+
+The project structure separates business logic, reusable layouts, configuration files, and application pages, making the codebase easier to maintain and extend.
+
+---
+
+# 👥 User Roles & Permissions
+
+The application supports seven user roles organized into two functional divisions.
+
+## Clinical Division
+
+Responsible for patient registration, diagnosis, and medical record management.
+
+### Doctor
+
+* Manage patient medical records
+* Record vaccine information
+* Update admission and discharge details
+
+![Doctor\_workspace](docs/screenshots/doctor_workspace.png)
+
+---
+
+### Lab Technician
+
+* Record diagnostic test results
+* Update COVID variant classifications
+
+![LabTechnician\_workspace](docs/screenshots/lab-technician-workspace.png)
+
+---
+
+### Receptionist
+
+* Register patients
+* Manage personal and contact information
+
+![Receptionist\_workspace](docs/screenshots/receptionist_workspace.png)
+
+---
+
+## Administrative Division
+
+Administrative users manage system accounts through a hierarchical authorization structure.
+
+### Admin
+
+* Full system access
+* Manage all user roles
+
+![admin\_portal](docs/screenshots/admin_portal.png)
+
+![admin\_manage\_users](docs/screenshots/admin_manage_users.png)
+
+---
+
+### Country Head
+
+* Manage City Heads
+* Manage Hospital Heads
+* Manage Doctors
+* Manage Lab Technicians
+* Manage Receptionists
+
+![country\_head\_workspace](docs/screenshots/country_head_workspace.png)
+
+---
+
+### City Head
+
+* Manage Hospital Heads
+* Manage Doctors
+* Manage Lab Technicians
+* Manage Receptionists
+
+![city\_head\_workspace](docs/screenshots/city_head_workspace.png)
+
+---
+
+### Hospital Head
+
+* Manage Doctors
+* Manage Lab Technicians
+* Manage Receptionists
+
+![hospital\_head\_workspace](docs/screenshots/hospital_head_workspace.png)
+
+---
+
+# ⚙️ Installation
+
+## 1. Clone the Repository
+
+```bash
+git clone <repository-url>
 ```
 
 ---
 
-## 🔐 Dynamic Role-Based Hierarchy
-The system supports seven functional roles organized into two primary divisions:
+## 2. Create the Database
 
-### A. Clinical Division (Data Logging & Processing)
-1.  **Doctor**: Records patient status, vaccine brand, dose count, admission & discharge details. Accesses the medical records ledger.
-2.  **Lab Technician**: Logs patient diagnostic test statuses and variant classifications. Accesses the medical records ledger.
-3.  **Receptionist**: Registers patient visits, personal addresses, and contact numbers. Accesses the medical records ledger.
+Open **phpMyAdmin** and create a database named:
 
-### B. Administrative Division (Layered Management & Registry Authorization)
-The administrative division can audit, delete, and provision accounts according to an strict hierarchical tree:
-*   **Admin**: Absolute access. Manages Country Heads, City Heads, Hospital Heads, Doctors, Lab Technicians, and Receptionists.
-*   **Country Head**: Manages City Heads, Hospital Heads, Doctors, Lab Technicians, and Receptionists.
-*   **City Head**: Manages Hospital Heads, Doctors, Lab Technicians, and Receptionists.
-*   **Hospital Head**: Manages local clinic staff (Doctors, Lab Technicians, and Receptionists).
+```
+covidrecorddatabase
+```
 
----
+Import the included SQL file:
 
-## 💻 Technical Setup & Installation Guide
-
-To deploy this project locally on your machine using **XAMPP** or **Wampserver**:
-
-### 1. Database Configuration
-1.  Open **phpMyAdmin** in your browser (`http://localhost/phpmyadmin`).
-2.  Create a new database named **`covidrecorddatabase`**.
-3.  Navigate to the import panel, choose the **`covidrecorddatabase.sql`** file from this project's root folder, and click **Import**.
-
-### 2. File Placement
-1.  Copy the entire extracted folder to your server's root directory:
-    *   For **XAMPP**: `C:/xampp/htdocs/`
-    *   For **WampServer**: `C:/wamp64/www/`
-2.  Ensure the directory is named `covid-19-mis` or similar.
-
-### 3. Running the App
-1.  Start your Apache and MySQL servers.
-2.  Open your browser and navigate to:
-    `http://localhost/covid-19-mis` (or your customized directory name).
-3.  Access the default credentials from the list below to begin exploring.
+```
+covidrecorddatabase.sql
+```
 
 ---
 
-## 🔑 Demo Seed Accounts
-The database comes pre-seeded with the following default credentials for testing and review:
+## 3. Configure the Project
 
-| User Type | Name | Email | Password | Clearance Level |
-| :--- | :--- | :--- | :--- | :--- |
-| **Admin** | Mr. Sajjad | `Sajjad@gmail.com` | `12345` | Global Audit & Management |
-| **Country Head** | Aftaab Ahmad | `Aftaab@gmail.com` | `12345` | National Scope |
-| **City Head** | Nasir Ameen | `Nasir@gmail.com` | `12345678` | Regional Scope |
-| **Hospital Head** | Mr. Adnan | `Adnan@gmail.com` | `123456` | Hospital Staff Authorization |
-| **Doctor** | Abid | `Abid@gmail.com` | `123789` | Clinic Operations |
-| **Lab Technician** | Ahmad | `Ahmad@gmail.com` | `Ahmad123` | Patient Diagnostics |
-| **Receptionist** | Ali | `Ali@gmail.com` | `12345` | Patient Registration |
+Copy the project folder into your local server directory.
 
-*(Note: Legacy plaintext password entries are supported alongside secure BCRYPT hashes for backward database compatibility.)*
+### XAMPP
+
+```
+C:/xampp/htdocs/
+```
+
+### WampServer
+
+```
+C:/wamp64/www/
+```
+
+---
+
+## 4. Run the Application
+
+Start Apache and MySQL.
+
+Open:
+
+```
+http://localhost/covid-19-mis
+```
 
 ---
 
-## 👤 Portfolio and Job Readiness Profile
-This project showcases high-performance engineering qualities highly sought after by modern tech companies:
-*   **Modern PHP Standards**: Demonstrates separation of concerns without reliance on monolithic frameworks, reflecting true raw PHP competence.
-*   **Defensive Security Practices**: Complete protection against parameters hacking, SQL injection, and session hijacking.
-*   **Optimized UX Design**: Tailored responsive aesthetics, interactive confirmation prompts, beautiful dark theme triggers, and robust visual feedbacks.
+# 🔑 Demo Accounts
+
+The database includes sample accounts for testing.
+
+| Role           | Email                                                     | Password              |
+| -------------- | --------------------------------------------------------- | --------------------- |
+| Admin          | [admin@gmail.com]         | adminpassword         |
+| Country Head   | [countryhead@gmail.com]   | countryheadpassword   |
+| City Head      | [cityhead@gmail.com]      | cityheadpassword      |
+| Hospital Head  | [hospitalhead@gmail.com]  | hospitalheadpassword  |
+| Doctor         | [doctor@gmail.com]        | doctorpassword        |
+| Lab Technician | [labtechnician@gmail.com] | labtechnicianpassword |
+| Receptionist   | [receptionist@gmail.com]  | receptionistpassword  |
+
+> **Note:** The sample database supports legacy plaintext passwords for backward compatibility while also supporting secure password hashing for modern authentication.
 
 ---
-*Created as a high-performance demonstration of professional code refactoring.*
+
+# 💼 What This Project Demonstrates
+
+This project was developed as part of my software development portfolio to demonstrate practical backend and full-stack web development skills using **Core PHP, MySQL, JavaScript, and Tailwind CSS** without relying on frameworks.
+
+Key skills demonstrated through this application:
+
+* Designing and developing Object-Oriented PHP applications
+* Writing secure database queries using PDO prepared statements
+* Implementing role-based authentication and authorization
+* Structuring maintainable and reusable code
+* Building responsive user interfaces with Tailwind CSS
+* Developing complete CRUD functionality
+* Managing MySQL databases and relational data
+* Organizing projects using Git and GitHub
+
+This project reflects my understanding of software architecture, secure backend development, database design, and responsive web application development. It represents the coding practices and technical skills I aim to bring to a junior PHP developer role.
