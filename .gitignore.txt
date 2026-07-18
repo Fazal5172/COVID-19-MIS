@@ -1,0 +1,46 @@
+# === OS Temp Files ===
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# === IDEs and Editors ===
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.project
+.settings/
+.buildpath
+
+# === PHP / Composer ===
+vendor/
+.phpunit.result.cache
+
+# === Environment Configuration ===
+.env
+.env.local
+.env.*.local
+
+# === Logs & Temporary Files ===
+*.log
+*.tmp
+*.bak
+*.cache
+*.session
+
+# === Database Backups ===
+*.sql.gz
+*.sql.zip
+
+# === Local Server Files ===
+xampp/
+wamp/
+
+# === Backup Directories ===
+backup/
+backups/
+old/
