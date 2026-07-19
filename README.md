@@ -128,7 +128,7 @@ Administrative users manage system accounts through a hierarchical authorization
 
 ![admin\_portal](docs/screenshots/admin_portal.png)
 
-![admin\_manage\_users](docs/screenshots/admin_manage_users.png)
+![admin\_manage\_users](docs/screenshots/admin_manage_user.png)
 
 ---
 
